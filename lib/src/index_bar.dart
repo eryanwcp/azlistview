@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -280,7 +279,7 @@ class _IndexBarState extends State<IndexBar> {
   @override
   void initState() {
     super.initState();
-    widget.indexBarDragNotifier?.dragDetails?.addListener(_valueChanged);
+    widget.indexBarDragNotifier?.dragDetails.addListener(_valueChanged);
     widget.controller?._attach(this);
   }
 
@@ -319,7 +318,7 @@ class _IndexBarState extends State<IndexBar> {
   void dispose() {
     widget.controller?._detach();
     _removeOverlay();
-    widget.indexBarDragNotifier?.dragDetails?.removeListener(_valueChanged);
+    widget.indexBarDragNotifier?.dragDetails.removeListener(_valueChanged);
     super.dispose();
   }
 
@@ -352,7 +351,6 @@ class _IndexBarState extends State<IndexBar> {
   /// add overlay.
   void _addOverlay(BuildContext context) {
     OverlayState? overlayState = Overlay.of(context);
-    if (overlayState == null) return;
     if (overlayEntry == null) {
       overlayEntry = OverlayEntry(builder: (BuildContext ctx) {
         double left;
@@ -527,7 +525,7 @@ class _BaseIndexBarState extends State<BaseIndexBar> {
             action == IndexBarDragDetails.actionUpdate)) {
       HapticFeedback.vibrate();
     }
-    widget.indexBarDragNotifier?.dragDetails?.value = IndexBarDragDetails(
+    widget.indexBarDragNotifier?.dragDetails.value = IndexBarDragDetails(
       action: action,
       index: lastIndex,
       tag: widget.data[lastIndex],

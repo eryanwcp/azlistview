@@ -43,6 +43,7 @@ dependencies:
     git:
       url: git://github.com/Sky24n/github_language_colors.git
 
+  scrollable_positioned_list: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
